@@ -43,9 +43,9 @@ function TableList(){
                     </tr>
                   </thead>
                   <tbody>
-                    {tdArray.map((prop, key) => {
+                    {candidates.map((cand, key) => {
                         return (
-                          <Tble key={key} prop={prop}>
+                          <Tble key={key} candidate={cand}>
                           </Tble>
                         );
                       })}
@@ -72,15 +72,12 @@ function TableList(){
                     </tr>
                   </thead>
                   <tbody>
-                    {tdArray.map((prop, key) => {
-                      return (
-                        <tr key={key}>
-                          {prop.map((prop, key) => {
-                            return <td key={key}>{prop}</td>;
-                          })}
-                        </tr>
-                      );
-                    })}
+                    {candidates.map((cand, key) => {
+                          return (
+                            <Tble key={key} candidate={cand}>
+                            </Tble>
+                          );
+                        })}
                   </tbody>
                 </Table>
               }
