@@ -2,26 +2,19 @@ import React, { useContext, useEffect } from "react";
 import { Grid, Row, Col, Table } from "react-bootstrap";
 
 import Card from "components/Card/Card.jsx";
-import { thArray, tdArray } from "variables/Variables.jsx";
+import { thArray } from "variables/Variables.jsx";
 import Tble from './Table';
 
 import { GlobalContext } from '../context/stateManager';
 
 function TableList(){
 
-  const { getCandidates, candidates } = useContext(GlobalContext);
+  const { getCandidates, updateCandidate, candidates } = useContext(GlobalContext);
 
   useEffect(() => {
     getCandidates();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // console.log(candidates)
-
-  if(candidates){
-    const arr = candidates.map(c => c._id)
-    console.log('coming from arrarr',arr)
-  }
 
   return (
     <div className="content">
@@ -45,7 +38,7 @@ function TableList(){
                   <tbody>
                     {candidates.map((cand, key) => {
                         return (
-                          <Tble key={key} candidate={cand}>
+                          <Tble key={key} candidate={cand} updateCandidate={updateCandidate}>
                           </Tble>
                         );
                       })}

@@ -35,13 +35,29 @@ export const StateManager = ({ children }) => {
         }
       }
 
+      async function updateCandidate(id) {
+        try {
+          await axios.delete(`${id}`);
+    
+          dispatch({
+            type: 'UPDATE_CANDIDATE',
+            payload: id
+          });
+        } catch (err) {
+          dispatch({
+            type: 'CANDIDATES_ERROR',
+            payload: err.response.data.error
+          });
+        }
+      }
 
     return(
         <GlobalContext.Provider value={{ 
             candidates : state.candidates,
             error: state.error,
             loading: state.loading,
-            getCandidates
+            getCandidates,
+            updateCandidate
         }}>
             { children }
         </GlobalContext.Provider>
