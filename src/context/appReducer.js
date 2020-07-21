@@ -1,11 +1,12 @@
 export default (state, action) => {
     switch(action.type){
 
-        case 'DELETE_CODE':
-            return {
-                ...state,
-                codes: state.codes.filter(code => code.id !== action.payload)
-            }
+        case 'GET_CANDIDATES':
+        return {
+            ...state,
+            loading: false,
+            candidates: action.payload
+        }
         default:
             return state
     }
