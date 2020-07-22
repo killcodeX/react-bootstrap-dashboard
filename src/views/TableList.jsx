@@ -14,7 +14,7 @@ function TableList(){
   useEffect(() => {
     getCandidates();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [candidates]);
 
   return (
     <div className="content">
@@ -22,8 +22,8 @@ function TableList(){
         <Row>
           <Col md={12}>
             <Card
-              title="Striped Table with Hover"
-              category="Here is a subtitle for this table"
+              title="Candidate Details"
+              category="Here is a Candidate table"
               ctTableFullWidth
               ctTableResponsive
               content={
@@ -48,7 +48,7 @@ function TableList(){
             />
           </Col>
 
-          <Col md={12}>
+          {/* <Col md={12}>
             <Card
               plain
               title="Striped Table with Hover"
@@ -75,7 +75,7 @@ function TableList(){
                 </Table>
               }
             />
-          </Col>
+          </Col> */}
         </Row>
       </Grid>
     </div>

@@ -35,13 +35,22 @@ export const StateManager = ({ children }) => {
         }
       }
 
-      async function updateCandidate(id) {
+      async function updateCandidate(data) {
+
+        console.log(data)
         try {
-          await axios.delete(`${id}`);
+          const putdata = await axios.put('http://18.188.185.178:3002/put/candidate', data, {
+            headers: {
+            'Content-Type': 'application/json'
+            }
+          }
+        );
+
+        console.log('coming from api put',putdata)
     
           dispatch({
             type: 'UPDATE_CANDIDATE',
-            payload: id
+            payload: putdata.data.data
           });
         } catch (err) {
           dispatch({
